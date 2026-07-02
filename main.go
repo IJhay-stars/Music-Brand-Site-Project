@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/israeloluwasegun293-stars/Music-Brand-Site-Project/db"
 	"github.com/israeloluwasegun293-stars/Music-Brand-Site-Project/handlers"
 )
 
@@ -17,8 +18,15 @@ func main() {
 	mux.HandleFunc("/services", handlers.Services)
 	mux.HandleFunc("/submit-booking", handlers.Submit)
 
+	dbCOnn, err := db.InitDb()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer dbCOnn.Close()
+
 	log.Println("Starting server at http://localhost:8080")
-	err := http.ListenAndServe(":8080", mux)
+	log.Println("Database initialization sucessful!")
+	err = http.ListenAndServe(":8080", mux)
 	if err != nil {
 		log.Fatal(err)
 	}
