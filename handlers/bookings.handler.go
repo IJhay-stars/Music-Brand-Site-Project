@@ -24,4 +24,6 @@ func Bookings(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	temp.Execute(w, nil)
+
+	
 }

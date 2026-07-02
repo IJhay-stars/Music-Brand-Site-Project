@@ -4,9 +4,10 @@ import (
 	"database/sql"
 	"log"
 
-	_ "modernc.org/sqlite"
+	_"modernc.org/sqlite"
 )
 
+	var DB *sql.DB
 func InitDb() (*sql.DB, error) {
 	db, err := sql.Open("sqlite", "Music-Brand.db")
 	if err != nil {
@@ -24,7 +25,7 @@ func InitDb() (*sql.DB, error) {
     FirstName TEXT,
 	LastName  TEXT,
 	Email  TEXT,
-	DATE  TEXT
+	Date  TEXT
 );`
 
 	_, err = db.Exec(query)
@@ -32,6 +33,7 @@ func InitDb() (*sql.DB, error) {
 		log.Println(err)
 		return nil, err
 	}
+	DB = db
 
 	return db, nil
 }

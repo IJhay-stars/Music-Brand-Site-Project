@@ -1,6 +1,10 @@
 package handlers
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/israeloluwasegun293-stars/Music-Brand-Site-Project/db"
+)
 
 type Info struct {
 	Fname string
@@ -34,5 +38,12 @@ func Submit(w http.ResponseWriter, r *http.Request) {
 	s.Email = r.FormValue("Email")
 	s.Date = r.FormValue("Date")
 
+	b := `INSERT INTO bookings(FirstName, LastName, Email, Date)VALUES(?,?,?,?);`
+
+	_, err = db.DB.Exec(b, s.Fname, s.Lname, s.Email, s.Date)
+	if err != nil {
+		http.Error(w, "Internal server error", 500)
+		return
+	}
 	w.Write([]byte("Booking submitted sucessfully!"))
 }
