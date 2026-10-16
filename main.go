@@ -59,3 +59,5 @@ func main() {
 		errorLog.Fatal(err)
 	}
 }
+
+//Depedency Injection closure implemented
