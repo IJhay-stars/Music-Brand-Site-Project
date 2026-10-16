@@ -1,27 +1,32 @@
 package handlers
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
+
+	"github.com/israeloluwasegun293-stars/Music-Brand-Site-Project/config"
 )
 
-func Home(w http.ResponseWriter, r *http.Request) {
+func Home(app *config.AppConfig) http.HandlerFunc {
 
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-	if r.Method != http.MethodGet {
-		w.Header().Set("Allow", http.MethodGet)
+	return func(w http.ResponseWriter, r *http.Request) {
 
-		http.Error(w, "Method not allowd", 405)
-		return
-	}
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
+		if r.Method != http.MethodGet {
+			w.Header().Set("Allow", http.MethodGet)
 
-	temp, err := template.ParseFiles("templates/index.html")
-	if err != nil {
-		http.Error(w, "internal server error", 500)
-		return
+			http.Error(w, "Method not allowd", 405)
+			return
+		}
+
+		temp, err := template.ParseFiles("templates/index.html")
+		if err != nil {
+			http.Error(w, "internal server error", 500)
+			return
+		}
+		temp.Execute(w, nil)
 	}
-	temp.Execute(w, nil)
 }

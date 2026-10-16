@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookings</title>
-</head>
-<body>
-    <h1>Book IJHAYCLASSICS</h1>
-    <p>Bookings are currently open</p>
-
-    <form action="/submit-booking" method = "POST">
-        <label for="Firstname">Firstname</label>
-        <input type="text" id="Firstname" name="Firstname" placeholder="John"><br>
-        <label for="Lastname">Lastname</label>
-        <input type="text" id="Lastname" name="Lastname" placeholder="Doe"><br>
-            <label for="Email">Email</label>
-            <input type="email" id="Email" name="Email"><br>
-            <label for="Date">Date</label>
-            <input type="date" id="Date" name="Date"><br>
-            <input type="submit" value = "Submit">
-    </form>
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Bookings | Ijhayclassics</title><link rel="stylesheet" href="/static/styles.css"></head><body>
+<header class="site-header"><nav class="nav"><a class="brand" href="/">IJHAY<span>CLASSICS</span></a><ul class="nav-links"><li><a href="/about">About</a></li><li><a href="/music">Listen now</a></li><li><a href="/services">Services</a></li><li><a aria-current="page" href="/bookings">Bookings</a></li></ul></nav></header>
+<main><section class="page-hero"><div class="page-hero-inner"><span class="eyebrow">Bookings are open</span><h1>Let’s make something memorable.</h1><p>Tell us a little about your project or event and we’ll be in touch.</p></div></section><div class="booking-wrap"><section class="booking-card"><span class="section-label">Booking request</span><h2>Bring your idea to life.</h2><p>Complete the form below to begin your booking enquiry.</p><form action="/submit-booking" method="POST"><div class="form-grid"><div class="form-field"><label for="Firstname">First name</label><input required type="text" id="Firstname" name="Firstname" placeholder="John"></div><div class="form-field"><label for="Lastname">Last name</label><input required type="text" id="Lastname" name="Lastname" placeholder="Doe"></div><div class="form-field full"><label for="Email">Email address</label><input required type="email" id="Email" name="Email" placeholder="you@example.com"></div><div class="form-field full"><label for="Date">Preferred date</label><input required type="date" id="Date" name="Date"></div></div><button class="button" type="submit">Send booking request <span>→</span></button></form></section></div></main><footer class="site-footer"><div class="footer-inner"><p>© Ijhayclassics Music · Crafted with feeling.</p><p><a href="https://wa.me/2349058353170">Chat on WhatsApp</a></p></div></footer></body></html>
